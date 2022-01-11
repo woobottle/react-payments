@@ -5,6 +5,15 @@
 <p align="middle">React 모바일 페이먼츠 애플리케이션</p>
 </p>
 
+
+# 미션 키워드 
+- Component
+- Props
+- Controlled & Uncontrolled Components
+- Storybook
+- Hooks API
+- Context API
+
 # Step1 - Component-Driven Development
 ## 🚀 Getting Started
 > `Component-Driven Development` 에 따라 UI를 구성하고 재사용 가능한 `Component`를 작성합니다.
@@ -68,12 +77,7 @@
 - [ ] 가상 키보드
   - [ ] 마스킹 처리된 값 입력시 사용
   - [ ] 숫자를 랜덤으로 배열
-Collapse
 
-
-
-9:06
-Step2 
 # Step2 - Controlled & Uncontrolled Components + Context API
 ## 🚀 Getting Started
 > `Component-Driven Development` 에 따라 UI를 구성하고 재사용 가능한 `Component`를 작성합니다.
