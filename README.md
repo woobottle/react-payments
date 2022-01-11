@@ -23,7 +23,7 @@
 ✔️ `재사용 가능한 Component`를 직접 작성하고 사용합니다.
 ✔️ `Controlled` & `Uncontrolled Components`에 입각하여 `Form`을 핸들링합니다.
 ✔️ [Github Repository](https://github.com/next-step/react-payments)
-✔️ [Figma](https://www.figma.com/file/uDHr0HNizeHMNpCbxT69KV/payments)
+
 ## 📝 Requirements
 ### 필수 요구사항 
 - [ ] `Storybook` 상호 작용 테스트
@@ -88,7 +88,6 @@
 ✔️ `재사용 가능한 Component`를 직접 작성하고 사용합니다.
 ✔️ `Controlled` & `Uncontrolled Components`에 입각하여 `Form`을 핸들링합니다.
 ✔️ [Github Repository](https://github.com/next-step/react-payments)
-✔️ [Figma](https://www.figma.com/file/uDHr0HNizeHMNpCbxT69KV/payments)
 ## 📝 Requirements
 ### 필수 요구사항 
 - [ ] `Storybook` 상호 작용 테스트
