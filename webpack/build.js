@@ -6,9 +6,9 @@ const config = require('./webpack.config');
 
 const env = process.env.NODE_ENV || 'development';
 const spinner = ora(env === 'development' ? 'Building for development' : 'Building for production');
-spinner.start()
+spinner.start();
 
-rm('./www/', (removeErr) => {
+rm('./build/', (removeErr) => {
   if (removeErr) throw removeErr;
 
   webpack(config, (err, stats) => {
@@ -30,5 +30,5 @@ rm('./www/', (removeErr) => {
     }
 
     console.log(chalk.cyan('Build complete'));
-  })
-})
+  });
+});

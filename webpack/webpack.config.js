@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
@@ -17,30 +17,30 @@ const env = process.env.NODE_ENV || 'development';
 module.exports = {
   mode: env,
   entry: {
-    app: "./src/index.ts",
+    app: './src/index.ts',
   },
   output: {
-    path: resolvePath("./www/"),
-    filename: "js/[name].[hash].js",
-    chunkFilename: "js/[name].[hash].js",
-    publicPath: "",
-    hotUpdateChunkFilename: "hot/hot-update.js",
-    hotUpdateMainFilename: "hot/hot-update.json",
+    path: resolvePath('./build/'),
+    filename: 'js/[name].[hash].js',
+    chunkFilename: 'js/[name].[hash].js',
+    publicPath: '',
+    hotUpdateChunkFilename: 'hot/hot-update.js',
+    hotUpdateMainFilename: 'hot/hot-update.json',
   },
   resolve: {
     fallback: { crypto: false },
-    extensions: [".js", ".jsx", ".ts", ".tsx", ".json"],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.mjs'],
     alias: {},
   },
-  devtool: env === "development" ? "eval" : "source-map",
+  devtool: env === 'development' ? 'eval' : 'source-map',
   devServer: {
     hot: true,
     open: true,
     port: 3000,
     static: {
-      directory: path.join(__dirname, "src"),
+      directory: path.join(__dirname, 'src'),
     },
-    historyApiFallback: { index: "index.html" },
+    historyApiFallback: { index: 'index.html' },
   },
   optimization: {
     concatenateModules: true,
@@ -50,25 +50,31 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx|ts|tsx)$/,
-        include: [resolvePath("src")],
+        include: [resolvePath('src')],
         use: {
-          loader: require.resolve("babel-loader"),
-          options:
-            env === "development"
-              ? { plugins: [require.resolve("react-refresh/babel")] }
-              : {},
+          loader: require.resolve('babel-loader'),
+          options: env === 'development' ? { plugins: [require.resolve('react-refresh/babel')] } : {},
         },
       },
       {
         test: /\.js$/,
-        use: ["source-map-loader"],
-        enforce: "pre",
+        use: ['source-map-loader'],
+        enforce: 'pre',
+      },
+      {
+        test: /\.m?js/,
+        resolve: {
+          fullySpecified: false,
+          fallback: {
+            crypto: false,
+          },
+        },
       },
       {
         test: /\.tsx?$/,
         use: [
           {
-            loader: "babel-loader",
+            loader: 'babel-loader',
           },
         ],
         exclude: /node_modules/,
@@ -76,79 +82,74 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          env === "development"
-            ? "style-loader"
+          env === 'development'
+            ? 'style-loader'
             : {
                 loader: MiniCssExtractPlugin.loader,
                 options: {
-                  publicPath: "../",
+                  publicPath: '../',
                 },
               },
-          "css-loader",
-          "postcss-loader",
+          'css-loader',
+          'postcss-loader',
         ],
       },
       {
         test: /\.(sa|sc)ss$/,
         use: [
-          env === "development"
-            ? "style-loader"
+          env === 'development'
+            ? 'style-loader'
             : {
                 loader: MiniCssExtractPlugin.loader,
                 options: {
-                  publicPath: "../",
+                  publicPath: '../',
                 },
               },
-          "css-loader",
-          "postcss-loader",
-          "sass-loader",
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
         ],
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: "url-loader",
+        loader: 'url-loader',
         options: {
           limit: 10000,
-          name: "images/[name].[ext]",
+          name: 'images/[name].[ext]',
         },
-        type: "javascrpt/auto",
+        type: 'javascrpt/auto',
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: "url-loader",
+        loader: 'url-loader',
         options: {
           limit: 10000,
-          name: "fonts/[name].[ext]",
+          name: 'fonts/[name].[ext]',
         },
-        type: "javascript/auto",
+        type: 'javascript/auto',
       },
     ],
   },
   plugins: [
     new webpack.DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify(env),
+      'process.env.NODE_ENV': JSON.stringify(env),
     }),
-    ...(env === "development"
-      ? [
-          new webpack.HotModuleReplacementPlugin(),
-          new ReactRefreshWebpackPlugin(),
-        ]
-      : [new CssMinimizerPlugin()]),
+    ...(env === 'development' ? [new webpack.HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin()] : [new CssMinimizerPlugin()]),
     new HtmlWebpackPlugin({
-      filename: "./index.html",
-      template: "./src/index.html",
+      filename: './index.html',
+      template: './src/index.html',
       inject: true,
       minify: false,
     }),
     new MiniCssExtractPlugin({
-      filename: "css/[name].css",
+      filename: 'css/[name].css',
     }),
     new CopyWebpackPlugin({
       patterns: [
         {
           noErrorOnMissing: true,
-          from: resolvePath("src/static"),
-          to: resolvePath("www/static"),
+          from: resolvePath('src/static'),
+          to: resolvePath('www/static'),
         },
       ],
     }),

@@ -2,11 +2,11 @@
   "name": "react-payments",
   "version": "1.0.0",
   "description": "<p align=\"middle\" >   <img src=\"https://techcourse-storage.s3.ap-northeast-2.amazonaws.com/0fefce79602043a9b3281ee1dd8f4be6\" width=\"400\"> </p> <h2 align=\"middle\">페이먼츠</h2> <p align=\"middle\">React 모바일 페이먼츠 애플리케이션</p> </p>",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run dev",
-    "dev": "cross-env NODE_ENV=development webpack serve --config ./build/webpack.config.js --host 0.0.0.0"
+    "dev": "cross-env NODE_ENV=development webpack serve --config ./webpack/webpack.config.js --host 0.0.0.0",
+    "build": "cross-env NODE_ENV=production node ./webpack/build.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,8 @@
   "dependencies": {
     "cross-env": "^7.0.3",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "typescript": "^4.5.5"
   },
   "devDependencies": {
     "@babel/core": "^7.16.12",
@@ -34,6 +35,9 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.4",
     "@types/react": "^17.0.38",
     "@types/react-dom": "^17.0.11",
+    "@types/styled-components": "^5.1.21",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
     "babel-core": "^7.0.0-beta.3",
     "babel-loader": "^8.2.3",
     "chalk": "^5.0.0",
@@ -41,11 +45,17 @@
     "css-loader": "^6.5.1",
     "css-minimizer-webpack-plugin": "^3.4.1",
     "dotenv-webpack": "^7.0.3",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-airbnb": "^0.0.1-security",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.5.2",
     "ora": "^6.0.1",
     "postcss-loader": "^6.2.1",
+    "prettier": "^2.5.1",
     "react-refresh": "^0.11.0",
     "rimraf": "^3.0.2",
     "sass-loader": "^12.4.0",
