@@ -17,7 +17,7 @@ const env = process.env.NODE_ENV || 'development';
 module.exports = {
   mode: env,
   entry: {
-    app: './src/index.ts',
+    app: './src/index.tsx',
   },
   output: {
     path: resolvePath('./build/'),
