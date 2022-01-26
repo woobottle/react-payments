@@ -20,8 +20,15 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "paths": {
+      "@constants": ["src/common/constants/index"],
+      "@components": ["src/components/index"],
+      "@interface": ["src/common/interface/index"],
+      "@share": ["src/components/share/index"],
+      "@utils": ["src/common/utils/index"],
+    }
   },
   "include": [
-    "src"
+    "src/**/*"
   ],
 }

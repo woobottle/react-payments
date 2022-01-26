@@ -30,7 +30,13 @@ module.exports = {
   resolve: {
     fallback: { crypto: false },
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.mjs'],
-    alias: {},
+    alias: {
+      '@constants': resolvePath('src/common/constants/'),
+      '@components': resolvePath('src/components/'),
+      '@interface': resolvePath('src/common/interface/'),
+      '@share': resolvePath('src/components/share/'),
+      '@utils': resolvePath('src/common/utils/'),
+    },
   },
   devtool: env === 'development' ? 'eval' : 'source-map',
   devServer: {
@@ -134,7 +140,9 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env),
     }),
-    ...(env === 'development' ? [new webpack.HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin()] : [new CssMinimizerPlugin()]),
+    ...(env === 'development'
+      ? [new webpack.HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin()]
+      : [new CssMinimizerPlugin()]),
     new HtmlWebpackPlugin({
       filename: './index.html',
       template: './src/index.html',
