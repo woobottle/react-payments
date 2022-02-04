@@ -54,6 +54,7 @@
 .password-placeholder {
   text-align: center;
   margin: auto 0;
+  color: black;
 }
 
 .input-error-msg {
