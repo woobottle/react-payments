@@ -82,8 +82,8 @@ const CardNumberInput = ({ newCard, setNewCard, setCompanyModalOpened }: CardNum
 
   const isNeedCompanySelect = useCallback(
     (event: React.KeyboardEvent<HTMLDivElement>) => {
+      event.preventDefault();
       if (isPublicCardNumberCompleted && company === '') {
-        event.preventDefault();
         setCompanyModalOpened(true);
         return true;
       }

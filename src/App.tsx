@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import CardIndexPage from './pages/card';
-import CardNewPage from './pages/card/new';
-import CardConfirmPage from './pages/card/confirm';
+import { CardIndexPage, CardNewPage, CardCompletePage } from './pages/Card';
 import { CardProps } from '@interface';
 import { initialNewCard } from '@constants';
 
@@ -14,8 +12,8 @@ const App = () => {
     <div className="App">
       <Routes>
         <Route path="/" element={<CardIndexPage cards={cards} />} />
-        <Route path="/new" element={<CardNewPage newCard={newCard} setNewCard={setNewCard} />} />
-        <Route path="/complete" element={<CardConfirmPage />} />
+        <Route path="/cards/new" element={<CardNewPage newCard={newCard} setNewCard={setNewCard} />} />
+        <Route path="/cards/complete" element={<CardCompletePage />} />
       </Routes>
     </div>
   );

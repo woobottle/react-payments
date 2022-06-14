@@ -1,8 +1,8 @@
-@import "./card.scss";
-@import "./input.scss";
-@import "./button.scss";
-@import "./modal.scss";
-@import "./utils.scss";
+@import "./card.css";
+@import "./input.css";
+@import "./button.css";
+@import "./modal.css";
+@import "./utils.css";
 
 body {
   display: flex;
@@ -49,25 +49,25 @@ input {
 }
 
 .tooltip {
-    position: absolute;
-    font-size: 0.5rem;
-    left: 35%;
-    width: 40%;
-    background-color: cornflowerblue;
-    padding: 0.5rem;
-    color: white;
-    margin-top: 0.5rem;
-    line-height: 1rem;
-    text-align: left;
-  }
+  position: absolute;
+  font-size: 0.5rem;
+  left: 35%;
+  width: 40%;
+  background-color: cornflowerblue;
+  padding: 0.5rem;
+  color: white;
+  margin-top: 0.5rem;
+  line-height: 1rem;
+  text-align: left;
+}
 
-  .tooltip::before {
-    content: '';
-    width: 0;
-    height: 0;
-    position: absolute;
-    top: -1rem;
-    border-width: 8px;
-    border-color: transparent transparent cornflowerblue transparent;
-    border-style: solid;
-  }
+.tooltip::before {
+  content: '';
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: -1rem;
+  border-width: 8px;
+  border-color: transparent transparent cornflowerblue transparent;
+  border-style: solid;
+}
