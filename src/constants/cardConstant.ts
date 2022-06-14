@@ -1,5 +1,5 @@
-import { CardCompany } from '@interface';
-import { CardProps } from '@interface';
+import { CardCompany } from 'src/interface';
+import { CardProps } from 'src/interface';
 
 export const initialCardForm: CardProps = {
   company: '',

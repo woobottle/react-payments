@@ -9,6 +9,7 @@ const Dotenv = require('dotenv-webpack');
 const path = require('path');
 
 function resolvePath(dir) {
+  console.log(path.join(__dirname, '..', dir));
   return path.join(__dirname, '..', dir);
 }
 
@@ -31,11 +32,12 @@ module.exports = {
     fallback: { crypto: false },
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.mjs'],
     alias: {
-      '@constants': resolvePath('src/common/constants/'),
-      '@components': resolvePath('src/components/'),
-      '@interface': resolvePath('src/common/interface/'),
-      '@share': resolvePath('src/components/share/'),
-      '@utils': resolvePath('src/common/utils/'),
+      '@constants': resolvePath('src/constants'),
+      '@components': resolvePath('src/components'),
+      '@interface': resolvePath('src/interface'),
+      '@share': resolvePath('src/components/share'),
+      '@utils': resolvePath('src/utils'),
+      '@hooks': resolvePath('src/hooks'),
     },
   },
   devtool: env === 'development' ? 'eval' : 'source-map',
@@ -140,9 +142,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(env),
     }),
-    ...(env === 'development'
-      ? [new webpack.HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin()]
-      : [new CssMinimizerPlugin()]),
+    ...(env === 'development' ? [new webpack.HotModuleReplacementPlugin(), new ReactRefreshWebpackPlugin()] : [new CssMinimizerPlugin()]),
     new HtmlWebpackPlugin({
       filename: './index.html',
       template: './src/index.html',

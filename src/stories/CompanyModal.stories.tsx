@@ -3,7 +3,7 @@ import React, { SetStateAction } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import '/src/assets/styles/index.css';
 import CompanyModal from '../components/card/CompanyModal';
-import { CardProps } from '@interface';
+import { CardProps } from 'src/interface';
 
 export default {
   title: 'CompanyModal',

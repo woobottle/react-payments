@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import { Card, CardForm, CardNumberInput, CompanyModal, CvcInput, ExpireDateInput, OwnerNameInput, PasswordInput, RootLayout } from '@components';
 import { CardProps } from '@interface';
 import { initialNewCard } from '@constants';
+import { useRouter } from '@hooks';
 
 interface CardNewPageProps {
   newCard: CardProps;
@@ -11,17 +11,17 @@ interface CardNewPageProps {
 
 const CardNewPage = ({ newCard, setNewCard }: CardNewPageProps) => {
   const [companyModalOpened, setCompanyModalOpened] = useState(false);
-  const navigate = useNavigate();
+  const router = useRouter();
+
   const beforeOutPage = () => {
     setNewCard(initialNewCard);
-    navigate(-1);
+    router.goBack();
   };
 
   const { ownerName } = newCard;
 
   const handleSubmit = () => {
-    if (true) return;
-    navigate('/complete');
+    router.push('/complete');
   };
 
   return (
